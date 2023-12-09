@@ -1,28 +1,35 @@
 
-import { SplitScreen } from './components/SplitScreen';
+import { RegularList } from "./components/list-layout/list-parent/RegularList";
+import { SmallAuthorList } from "./components/list-layout/authors/SmallAuthorList";
+import { LargeAuthorList } from "./components/list-layout/authors/LargeAuthorList";
+import { SmallBookList } from "./components/list-layout/books/SmallBookList.jsx";
+import { LargeBookList } from './components/list-layout/books/LargeBookList';
 
-export const LeftSideComponent = ({ title }) => {
-  return (
-    <h1 style={ { background: "yellow" } }>{ title ? title : 'Hello Left' }</h1>
-  );
-};
-export const RightSideComponent = ({ title }) => {
-  return (
-    <h1 style={ { background: "red" } }>{ title ? title : 'Hello Right' }</h1>
-  );
-};
+import { authors } from "./data/authors";
+import { books } from './data/books.js';
 
 
 const App = () => {
 
   return (
-    <SplitScreen
-      leftWidth={ 1 }
-      rightWidth={ 2 }
-    >
-      <LeftSideComponent title={ 'left' } />
-      <RightSideComponent title={ 'right' } />
-    </SplitScreen>
+    <>
+      <RegularList
+        sourceName={ 'author' }
+        ItemComponent={ LargeAuthorList }
+        items={ authors } />
+      <RegularList
+        sourceName={ 'author' }
+        ItemComponent={ SmallAuthorList }
+        items={ authors } />
+      <RegularList
+        sourceName={ 'book' }
+        ItemComponent={ SmallBookList }
+        items={ books } />
+      <RegularList
+        sourceName={ 'book' }
+        ItemComponent={ SmallBookList }
+        items={ books } />
+    </>
   );
 };
 
