@@ -5,6 +5,8 @@
 
 ## Description
 
+Each branch represents a different module.
+
 Leveling up skills.
 
 **What's in Store:**
