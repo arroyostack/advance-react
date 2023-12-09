@@ -15,7 +15,7 @@ const ModalContent = styled.div`
 margin: 12% auto;
 padding: 24px;
 background-color: wheat;
-width: 50%;
+width:50%;
 `;
 
 export const Modal = ({ children }) => {
@@ -25,6 +25,7 @@ export const Modal = ({ children }) => {
             <button onClick={ () => setShow(true) }>Show Modal</button>
             { show && (
                 <ModalBackground onClick={ () => setShow(false) }>
+                    {/* StopPropagation prevents the modal to close whe its content is clicked. */ }
                     <ModalContent onClick={ e => e.stopPropagation() }>
                         <button onClick={ () => setShow(false) }>Hide Modal</button>
                         { children }
